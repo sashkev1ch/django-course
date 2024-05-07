@@ -2,7 +2,7 @@
 name = "django-course"
 version = "0.1.0"
 description = ""
-authors = ["avolosevich <Alexander.Volosevich@nexign.com>"]
+authors = ["avolosevich <sashkevich23@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
