@@ -7,7 +7,7 @@ class IndexView(TemplateView):
     template_name = "index.html"
 
     def get(self, request, *args, **kwargs):
-        return redirect(reverse_lazy("tagged_article", kwargs={'tags': "python", 'article_id': 42}))
+        return render(request, "index.html")
 
 
 def about(request):
