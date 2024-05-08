@@ -9,4 +9,6 @@ class Article(models.Model):
     def __str__(self) -> str:
         return self.name
 
-# Create your models here.
+
+class ArticleComment(models.Model):
+    content = models.CharField("content", max_length=100)
