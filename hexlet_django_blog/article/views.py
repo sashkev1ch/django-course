@@ -1,6 +1,5 @@
 from django.views import View
 from django.shortcuts import render, get_object_or_404, redirect
-# from django.contrib import messages
 from django.contrib.messages import get_messages, info
 
 # local
