@@ -1,5 +1,7 @@
 from django.views import View
 from django.shortcuts import render, get_object_or_404, redirect
+# from django.contrib import messages
+from django.contrib.messages import get_messages, info
 
 # local
 from hexlet_django_blog.article.models import Article
@@ -9,7 +11,8 @@ from hexlet_django_blog.article.forms import CommentArticleForm, CreateArticleFo
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         articles = Article.objects.all()
-        return render(request, "articles/index.html", context={"articles": articles})
+        messages = get_messages(request)
+        return render(request, "articles/index.html", context={"articles": articles, "messages": messages})
 
 
 class ArticleView(View):
@@ -43,6 +46,8 @@ class ArticleCreateFormView(View):
         form = CreateArticleForm(request.POST)
         if form.is_valid():
             form.save()
+            # messages.add_messge(request, messages.INFO, "Article added")
+            info(request, "Article added")
             return redirect("articles")
-        
+
         return render(request, "articles/create.html", context={"form": form})
