@@ -68,3 +68,12 @@ class IndexArtickeUpdateView(View):
             return redirect("articles")
 
         return render("articles/update.html", context={"form": form, "article_id": article_id})
+
+
+class ArticleDeleteView(View):
+    def post(self, request, *args, **kwargs):
+        article_id = kwargs.get("id")
+        article = get_object_or_404(Article, id=article_id)
+        article.delete()
+
+        return redirect("articles")
